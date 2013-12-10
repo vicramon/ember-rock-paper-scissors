@@ -8,8 +8,6 @@ App.HandView = Ember.View.extend
 
   didInsertElement: ->
     @get('controller').on('bounce', $.proxy(@bounce, @))
-    @get('controller').on('aiHand', $.proxy(@aiHand, @))
-    @get('controller').on('resetHand', $.proxy(@resetHand, @))
 
   bounce: ->
     duration = 500
@@ -18,25 +16,29 @@ App.HandView = Ember.View.extend
       @$().animate('margin-top': distance, duration)
         .animate('margin-top': '0px', duration)
 
-  resetHand: -> @set('typeIndex', 0)
-
-  click: -> @changeType() unless @get('isAI')
-
-  isAI: ( ->
-    true if @get('elementId') is 'ai'
-  ).property('id')
-
   currentType: ( ->
     @typeList[@get('typeIndex')]
   ).property('typeIndex')
+
+  typeIndex: 0
+
+
+  ## Human Only
 
   changeType: ->
     typeIndex = @get('typeIndex')
     @set('typeIndex', (typeIndex += 1))
     @set('typeIndex', 0) if @get('typeIndex') is 3
 
-  typeIndex: 0
-  typeList: ['rock', 'paper', 'scissors']
+  click: -> @changeType() if @get('controller.isPlaying')
+
+
+  ## AI Only
+
+  didInsertElement: ->
+    @_super()
+    @get('controller').on('aiHand', $.proxy(@aiHand, @))
+    @get('controller').on('resetHand', $.proxy(@resetHand, @))
 
   aiHand: ->
     @set('typeIndex', @randomInteger(0, 2)) if @get('isAI')
@@ -44,3 +46,13 @@ App.HandView = Ember.View.extend
   randomInteger: (min, max) ->
     return Math.floor(Math.random() * (max - min + 1) + min)
 
+  resetHand: -> @set('typeIndex', 0)
+
+  isAI: ( ->
+    true if @get('elementId') is 'ai'
+  ).property('id')
+
+
+  ## Should be global variable
+
+  typeList: ['rock', 'paper', 'scissors']
