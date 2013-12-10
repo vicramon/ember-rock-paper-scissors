@@ -1,1 +1,4 @@
 h3 Ember Rock Paper Scissors
+
+= view App.FistView side='left'
+= view App.FistView side='right'
