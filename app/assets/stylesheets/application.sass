@@ -4,12 +4,15 @@ body
 a
   cursor: pointer
 
-.hand
-  background: blue
-  height: 350px
-  width: 350px
-  margin: 0 100px 0 0
-  display: inline-block
+#hand_area
+  height: 500px
+
+  .hand
+    height: 350px
+    width: 350px
+    margin: 0 100px 0 0
+    display: inline-block
+    transition: padding .2s linear
 
 .left_fist
   background: url('left_fist.png') no-repeat center left
@@ -28,3 +31,20 @@ a
 
 .right_scissors
   background: url('scissors_right.png') no-repeat center left
+
+input[type='submit']
+  padding: 10px 30px
+  font-size: 20px
+  background: orange
+  color: #222
+  border: none
+
+.play_button
+  margin-left: 220px
+
+input[disabled=disabled][type='submit']
+  background: #999
+
+#stats
+  float: right
+  margin: 0 20% 0 0

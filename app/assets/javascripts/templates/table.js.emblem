@@ -1,4 +1,11 @@
 h3 Ember Rock Paper Scissors
 
-= view App.FistView side='left'
-= view App.FistView side='right'
+#stats
+  | Countdown:
+  = countdown
+
+#hand_area
+  = view App.HandView side='left'
+  = view App.HandView side='right'
+
+= view App.PlayButtonView
