@@ -15,8 +15,30 @@ App.TableController = Ember.Controller.extend Ember.Evented,
   newGame: ->
     @set('isPlaying', true)
     @startCountdown()
+    @trigger('resetHand')
     @trigger('bounce')
-    Ember.run.later( @, @gameOver, 6000)
+    Ember.run.later( @, @gameOver, 5000)
 
   gameOver: ->
+    @trigger('aiHand')
+    winner = @determineWinner()
+    console.log winner
+    # display text
+    # add to win/lose count
     @set('isPlaying', false)
+
+  determineWinner: ->
+    humanChoice = Ember.View.views.human.get('currentType')
+    aiChoice = Ember.View.views.ai.get('currentType')
+    if @beatTable[humanChoice] is aiChoice
+      'human'
+    else if @beatTable[aiChoice] is humanChoice
+      'ai'
+    else
+      'tie'
+
+  beatTable: {
+    rock: 'scissors'
+    scissors: 'paper'
+    paper: 'rock'
+  }

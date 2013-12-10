@@ -8,5 +8,5 @@ test 'Header ok', ->
 
 test 'Fists are visible', ->
   visit '/'
-  ok exists '.left_fist'
-  ok exists '.right_fist'
+  ok exists '.left_rock'
+  ok exists '.right_rock'

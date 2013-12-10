@@ -5,7 +5,7 @@ h3 Ember Rock Paper Scissors
   = countdown
 
 #hand_area
-  = view App.HandView side='left'
-  = view App.HandView side='right'
+  = view App.HandView side='left' id='human'
+  = view App.HandView side='right' id='ai'
 
 = view App.PlayButtonView
