@@ -46,20 +46,21 @@ GEM
     coffee-script-source (1.6.3)
     ember-data-source (0.14)
       ember-source
-    ember-rails (0.13.0)
+    ember-rails (0.14.1)
       active_model_serializers
       barber (>= 0.4.1)
       ember-data-source
       ember-source
       execjs (>= 1.2)
       handlebars-source
+      jquery-rails (>= 1.0.17)
       railties (>= 3.1)
     ember-source (1.2.0.1)
       handlebars-source (~> 1.1.2)
-    emblem-rails (0.1.1)
+    emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
-      ember-rails (>= 0.11.1)
-    emblem-source (0.3.2)
+      ember-rails (>= 0.14.0)
+    emblem-source (0.3.5)
     erubis (2.7.0)
     execjs (2.0.2)
     haml (4.0.3)
@@ -71,7 +72,7 @@ GEM
       railties (>= 3.1, < 4.1)
     handlebars-source (1.1.2)
     hike (1.2.3)
-    i18n (0.6.5)
+    i18n (0.6.9)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
