@@ -2,6 +2,7 @@ App.TableController = Ember.Controller.extend Ember.Evented,
 
   isPlaying: false
 
+  # refactor, use setInterval
   startCountdown: ->
     @set('countdown', 5)
     Ember.run.later( @, ( -> @set('countdown', 4)), 1000)
@@ -37,6 +38,8 @@ App.TableController = Ember.Controller.extend Ember.Evented,
     else
       'tie'
 
+  ## Should be app constant
+ 
   beatTable: {
     rock: 'scissors'
     scissors: 'paper'

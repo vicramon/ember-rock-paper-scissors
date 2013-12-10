@@ -53,6 +53,6 @@ App.HandView = Ember.View.extend
   ).property('id')
 
 
-  ## Should be global variable
+  ## Should be app constants
 
   typeList: ['rock', 'paper', 'scissors']
