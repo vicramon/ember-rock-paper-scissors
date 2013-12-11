@@ -12,7 +12,7 @@ App.HandView.reopen
   bounce: ->
     duration = 500
     distance = '100px'
-    for i in [0..4]
+    for i in [0..2]
       @$().animate('margin-top': distance, duration)
         .animate('margin-top': '0px', duration)
 
