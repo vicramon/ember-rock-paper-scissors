@@ -1,6 +1,15 @@
 h3 Ember Rock Paper Scissors
 
 #stats
+  .stat
+    ' Wins:
+    = winCount
+  .stat
+    ' Losses:
+    = lossCount
+  .stat
+    ' Ties:
+    = tieCount
 
 #hand_area
   = view App.HumanHandView side='left' id='human'

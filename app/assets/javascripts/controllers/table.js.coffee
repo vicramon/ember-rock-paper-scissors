@@ -1,29 +1,25 @@
 App.TableController = Ember.Controller.extend Ember.Evented,
 
   isPlaying: false
+  winCount: 0
+  lossCount: 0
+  tieCount: 0
 
   newGame: ->
     @set('isPlaying', true)
-    @startCountdown()
     @trigger('resetHand')
     @trigger('bounce')
     Ember.run.later( @, @gameOver, 3000)
 
   gameOver: ->
     @trigger('aiHand')
-    winner = @determineWinner()
-    @showMessages(winner)
-    # add to win/lose count
+    outcome = @determineWinner()
+    @trigger(outcome)
+    @updateStats(outcome)
     @set('isPlaying', false)
 
-  showMessages: (winner) ->
-    console.log winner
-    if winner is 'human'
-      @trigger('win')
-    else if winner is 'ai'
-      @trigger('loss')
-    else
-      @trigger('tie')
+  updateStats: (outcome) ->
+    @incrementProperty(outcome + 'Count')
 
   determineWinner: ->
     humanChoice = Ember.View.views.human.get('currentType')
