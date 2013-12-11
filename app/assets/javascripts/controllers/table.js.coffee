@@ -39,7 +39,7 @@ App.TableController = Ember.Controller.extend Ember.Evented,
       'tie'
 
   ## Should be app constant
- 
+
   beatTable: {
     rock: 'scissors'
     scissors: 'paper'

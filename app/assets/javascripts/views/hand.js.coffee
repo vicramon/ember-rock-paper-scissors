@@ -1,4 +1,4 @@
-App.HandView = Ember.View.extend
+App.HandView.reopen
   classNames: ['hand']
   classNameBindings: ['handType']
 
@@ -21,37 +21,6 @@ App.HandView = Ember.View.extend
   ).property('typeIndex')
 
   typeIndex: 0
-
-
-  ## Human Only
-
-  changeType: ->
-    typeIndex = @get('typeIndex')
-    @set('typeIndex', (typeIndex += 1))
-    @set('typeIndex', 0) if @get('typeIndex') is 3
-
-  click: -> @changeType() if @get('controller.isPlaying')
-
-
-  ## AI Only
-
-  didInsertElement: ->
-    @_super()
-    @get('controller').on('aiHand', $.proxy(@aiHand, @))
-    @get('controller').on('resetHand', $.proxy(@resetHand, @))
-
-  aiHand: ->
-    @set('typeIndex', @randomInteger(0, 2)) if @get('isAI')
-
-  randomInteger: (min, max) ->
-    return Math.floor(Math.random() * (max - min + 1) + min)
-
-  resetHand: -> @set('typeIndex', 0)
-
-  isAI: ( ->
-    true if @get('elementId') is 'ai'
-  ).property('id')
-
 
   ## Should be app constants
 
