@@ -1,11 +1,13 @@
 h3 Ember Rock Paper Scissors
 
 #stats
-  | Countdown:
-  = countdown
 
 #hand_area
   = view App.HumanHandView side='left' id='human'
   = view App.AIHandView side='right' id='ai'
 
 = view App.PlayButtonView
+
+#win_message.message You win!
+#loss_message.message You lose :(
+#tie_message.message It's a tie!

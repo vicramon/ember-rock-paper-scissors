@@ -20,10 +20,18 @@ App.TableController = Ember.Controller.extend Ember.Evented,
   gameOver: ->
     @trigger('aiHand')
     winner = @determineWinner()
-    console.log winner
-    # display text
+    @showMessages(winner)
     # add to win/lose count
     @set('isPlaying', false)
+
+  showMessages: (winner) ->
+    console.log winner
+    if winner is 'human'
+      @trigger('win')
+    else if winner is 'ai'
+      @trigger('loss')
+    else
+      @trigger('tie')
 
   determineWinner: ->
     humanChoice = Ember.View.views.human.get('currentType')
@@ -34,8 +42,6 @@ App.TableController = Ember.Controller.extend Ember.Evented,
       'ai'
     else
       'tie'
-
-  ## Should be app constant
 
   beatTable: {
     rock: 'scissors'
