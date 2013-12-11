@@ -12,7 +12,7 @@ App.TableController = Ember.Controller.extend Ember.Evented,
     Ember.run.later( @, @gameOver, 3000)
 
   gameOver: ->
-    @trigger('aiHand')
+    @trigger('chooseAIHand')
     outcome = @determineWinner()
     @trigger(outcome)
     @updateStats(outcome)
