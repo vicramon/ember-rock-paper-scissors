@@ -10,7 +10,7 @@ App.HandView.reopen
     @get('controller').on('bounce', => @bounce())
 
   bounce: ->
-    duration = 500
+    duration = App.BounceDuration
     distance = '100px'
     for i in [0..2]
       @$().animate('margin-top': distance, duration)

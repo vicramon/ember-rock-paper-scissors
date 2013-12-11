@@ -7,6 +7,6 @@ App.TableView = Ember.View.extend
     @get('controller').on('loss', @showLossMessage)
     @get('controller').on('tie', @showTieMessage)
 
-  showWinMessage: -> $('#win_message').show().delay(3000).fadeOut()
-  showLossMessage: -> $('#loss_message').show().delay(3000).fadeOut()
-  showTieMessage: -> $('#tie_message').show().delay(3000).fadeOut()
+  showWinMessage: -> $('#win_message').show().delay(App.MessageDuration).fadeOut()
+  showLossMessage: -> $('#loss_message').show().delay(App.MessageDuration).fadeOut()
+  showTieMessage: -> $('#tie_message').show().delay(App.MessageDuration).fadeOut()

@@ -9,7 +9,7 @@ App.TableController = Ember.Controller.extend Ember.Evented,
     @set('isPlaying', true)
     @trigger('resetHand')
     @trigger('bounce')
-    Ember.run.later( @, @gameOver, 3000)
+    Ember.run.later( @, @gameOver, App.GameDuration)
 
   gameOver: ->
     @trigger('chooseAIHand')
