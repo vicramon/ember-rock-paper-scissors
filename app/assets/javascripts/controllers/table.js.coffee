@@ -2,14 +2,6 @@ App.TableController = Ember.Controller.extend Ember.Evented,
 
   isPlaying: false
 
-  startCountdown: ->
-    @set('countdown', 3)
-    Ember.run.later( @, ( -> @set('countdown', 2)), 1000)
-    Ember.run.later( @, ( -> @set('countdown', 1)), 2000)
-    Ember.run.later( @, ( -> @set('countdown', 0)), 3000)
-
-  countdown: ( -> ).property()
-
   newGame: ->
     @set('isPlaying', true)
     @startCountdown()
