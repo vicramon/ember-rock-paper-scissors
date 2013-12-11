@@ -1,6 +1,6 @@
 App.HumanHandView = App.HandView.extend
 
-  click: -> @changeType() if @get('controller.isPlaying')
+  click: -> @changeType()
 
   changeType: ->
     typeIndex = @get('typeIndex')
