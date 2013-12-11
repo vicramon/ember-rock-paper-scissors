@@ -7,7 +7,7 @@ App.HandView.reopen
   ).property('side', 'currentType')
 
   didInsertElement: ->
-    @get('controller').on('bounce', $.proxy(@bounce, @))
+    @get('controller').on('bounce', => @bounce())
 
   bounce: ->
     duration = 500
@@ -21,7 +21,5 @@ App.HandView.reopen
   ).property('typeIndex')
 
   typeIndex: 0
-
-  ## Should be app constants
 
   typeList: ['rock', 'paper', 'scissors']

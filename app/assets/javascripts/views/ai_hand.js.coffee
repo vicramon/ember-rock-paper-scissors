@@ -3,8 +3,8 @@ App.AIHandView = App.HandView.extend
 
   didInsertElement: ->
     @_super()
-    @get('controller').on('aiHand', $.proxy(@aiHand, @))
-    @get('controller').on('resetHand', $.proxy(@resetHand, @))
+    @get('controller').on('aiHand', => @aiHand())
+    @get('controller').on('resetHand', => @resetHand())
 
   aiHand: -> @set('typeIndex', @randomInteger(0, 2))
 
