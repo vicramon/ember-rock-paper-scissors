@@ -24,15 +24,9 @@ App.TableController = Ember.Controller.extend Ember.Evented,
   determineWinner: ->
     humanChoice = Ember.View.views.human.get('currentType')
     aiChoice = Ember.View.views.ai.get('currentType')
-    if @beatTable[humanChoice] is aiChoice
-      'human'
-    else if @beatTable[aiChoice] is humanChoice
-      'ai'
+    if App.BeatTable[humanChoice] is aiChoice
+      'win'
+    else if App.BeatTable[aiChoice] is humanChoice
+      'loss'
     else
       'tie'
-
-  beatTable: {
-    rock: 'scissors'
-    scissors: 'paper'
-    paper: 'rock'
-  }

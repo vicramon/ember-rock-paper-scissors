@@ -17,9 +17,7 @@ App.HandView.reopen
         .animate('margin-top': '0px', duration)
 
   currentType: ( ->
-    @typeList[@get('typeIndex')]
+    App.HandTypes[@get('typeIndex')]
   ).property('typeIndex')
 
   typeIndex: 0
-
-  typeList: ['rock', 'paper', 'scissors']
