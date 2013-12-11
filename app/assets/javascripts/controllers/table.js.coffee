@@ -18,8 +18,7 @@ App.TableController = Ember.Controller.extend Ember.Evented,
     @updateStats(outcome)
     @set('isPlaying', false)
 
-  updateStats: (outcome) ->
-    @incrementProperty(outcome + 'Count')
+  updateStats: (outcome) -> @incrementProperty(outcome + 'Count')
 
   determineWinner: ->
     humanChoice = Ember.View.views.human.get('currentType')
