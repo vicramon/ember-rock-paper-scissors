@@ -1,5 +1,3 @@
-h3 Ember Rock Paper Scissors
-
 #stats
   .stat
     ' Wins:
@@ -10,6 +8,8 @@ h3 Ember Rock Paper Scissors
   .stat
     ' Ties:
     = tieCount
+
+h3 Ember Rock Paper Scissors
 
 #hand_area
   = view App.HumanHandView side='left' id='human'
